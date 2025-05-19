@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.dev.marcelo.tarefas.dao.FuncionarioDAO;
 import br.dev.marcelo.tarefas.model.Funcionario;
@@ -18,14 +20,51 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Funcionario funcionario = new Funcionario();
-		funcionario.setCodigo(3);
-		funcionario.setEmail("victor@gmail.com");
-		funcionario.setMatricula("2519090");
-		funcionario.setNome("Victor");
+		List<String> frutas = new ArrayList<>();
+		List<Funcionario> funcionarios = new ArrayList<>();
+		List<Integer> inteiros = new ArrayList<>();
 		
-		FuncionarioDAO dao = new FuncionarioDAO(funcionario);
-		dao.gravar();
+		frutas.add("abacaxi");
+		frutas.add("banana");
+		frutas.add("maçã");
+		frutas.add("uva");
+		frutas.add("morango");
+		
+		inteiros.add(4);
+		inteiros.add(6);
+		inteiros.add(9);
+		
+		Funcionario funcionario = new Funcionario();
+		funcionario.setCodigo(4);
+		funcionario.setNome("Tiago");
+		funcionario.setMatricula("2516090");
+		funcionario.setEmail("tiago@gmail.com");
+		
+		Funcionario funcionario2 = new Funcionario();
+		funcionario2.setCodigo(5);
+		funcionario2.setNome("Marcos");
+		funcionario2.setMatricula("2518090");
+		funcionario2.setEmail("marcos@gmail.com");
+		
+		Funcionario funcionario3 = new Funcionario();
+		funcionario3.setCodigo(6);
+		funcionario3.setNome("Hugo");
+		funcionario3.setMatricula("2518090");
+		funcionario3.setEmail("hugo@gmail.com");
+		
+		funcionarios.addAll(List.of(funcionario, funcionario2, funcionario3));
+		
+		System.out.println(frutas);
+		System.out.println(inteiros);
+		System.out.println(funcionarios);
+		
+		for (Funcionario f : funcionarios) {
+			System.out.println(f.getNome() + " - " + f.getEmail());
+		}
+		
+//		
+//		FuncionarioDAO dao = new FuncionarioDAO(funcionario);
+//		dao.gravar();
 		
 	}
 	

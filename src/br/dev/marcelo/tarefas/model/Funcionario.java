@@ -39,4 +39,9 @@ public class Funcionario {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return this.codigo + "," + this.nome + "," + this.matricula + "," + this.email + "\n";
+	}
+	
 }
