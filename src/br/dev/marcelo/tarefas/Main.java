@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import br.dev.marcelo.tarefas.dao.FuncionarioDAO;
 import br.dev.marcelo.tarefas.model.Funcionario;
 import br.dev.marcelo.tarefas.model.Tarefa;
 
@@ -17,11 +18,14 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Funcionario f = new Funcionario();
-		Tarefa t = new Tarefa();
+		Funcionario funcionario = new Funcionario();
+		funcionario.setCodigo(3);
+		funcionario.setEmail("victor@gmail.com");
+		funcionario.setMatricula("2519090");
+		funcionario.setNome("Victor");
 		
-		gravarArquivo();
-		lerArquivo();
+		FuncionarioDAO dao = new FuncionarioDAO(funcionario);
+		dao.gravar();
 		
 	}
 	
