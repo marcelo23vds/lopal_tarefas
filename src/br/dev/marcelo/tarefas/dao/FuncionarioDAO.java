@@ -37,7 +37,7 @@ public class FuncionarioDAO {
 	public List<Funcionario> showEmployees() {
 
 		List<Funcionario> funcionarios = new ArrayList<>();
-		
+
 		try {
 
 			BufferedReader br = ff.getBufferedReader();
@@ -46,17 +46,19 @@ public class FuncionarioDAO {
 
 			do {
 				linha = br.readLine();
-				
+
 				Funcionario f = new Funcionario();
 				String[] funcionario = linha != null ? linha.split(",") : null;
-				
-				f.setCodigo(funcionario[0]);
-				f.setNome(funcionario[1]);
-				f.setTelefone(funcionario[2]);
-				f.setEmail(funcionario[3]);
-				
-				funcionarios.add(f);
-				
+
+				if (funcionario != null) {
+					f.setCodigo(funcionario[0]);
+					f.setNome(funcionario[1]);
+					f.setTelefone(funcionario[2]);
+					f.setEmail(funcionario[3]);
+
+					funcionarios.add(f);
+				}
+
 			} while (linha != null);
 
 		} catch (IOException e) {
