@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -24,6 +25,7 @@ public class FrameListaFuncionario {
 	private JButton btnExcluir;
 	private JButton btnAlterar;
 	private JButton btnSair;
+//	private JButton btnVoltar; criar esse botao depois
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);
 
@@ -52,7 +54,7 @@ public class FrameListaFuncionario {
 		colunas[0] = "Código";
 		colunas[1] = "Nome";
 		colunas[2] = "Email";
-
+		
 //		obter lista de funcionarios
 		FuncionarioDAO dao = new FuncionarioDAO(null);
 
@@ -72,6 +74,7 @@ public class FrameListaFuncionario {
 		}
 
 		tableFuncionarios = new JTable(dados, colunas);
+		
 		scrollFuncionarios = new JScrollPane(tableFuncionarios);
 		scrollFuncionarios.setBounds(10, 70, 500, 300);
 		
@@ -86,7 +89,7 @@ public class FrameListaFuncionario {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new FrameFuncionario(tela);
-				
+				//descobrir como atualizar a JTable apos sair da tela de dialogo
 			}
 		});
 		

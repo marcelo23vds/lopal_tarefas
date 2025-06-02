@@ -13,6 +13,7 @@ import br.dev.marcelo.tarefas.dao.FuncionarioDAO;
 import br.dev.marcelo.tarefas.model.Funcionario;
 import br.dev.marcelo.tarefas.model.Tarefa;
 import br.dev.marcelo.tarefas.ui.FrameFuncionario;
+import br.dev.marcelo.tarefas.ui.FrameInicial;
 import br.dev.marcelo.tarefas.ui.FrameListaFuncionario;
 import br.dev.marcelo.tarefas.utils.Utils;
 
@@ -23,7 +24,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		new FrameListaFuncionario();
+		new FrameInicial();
 		
 //		new FrameFuncionario();
 		

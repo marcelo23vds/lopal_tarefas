@@ -121,7 +121,7 @@ public class FrameFuncionario {
 					JOptionPane.YES_NO_OPTION
 				);
 				if (resposta == 0) {
-					tela.setVisible(false);
+					tela.dispose();
 				}
 			}
 		});
