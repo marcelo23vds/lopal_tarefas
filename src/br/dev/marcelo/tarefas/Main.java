@@ -20,7 +20,13 @@ import br.dev.marcelo.tarefas.utils.Utils;
 public class Main {
 	
 	//determinando caminho do arquivo que será lido
-	private static String path = "C:\\Users\\25132416\\tarefa\\tarefas.txt";
+	
+//	UTILIZAR ESSE NO PC DO SENAI
+//	private static String path = "C:\\Users\\25132416\\tarefa\\tarefas.csv"; 
+	
+//	UTILIZAR ESSE NO PC DE CASA
+	private static String path = "C:\\Users\\vieir\\Desktop\\tarefas.csv"; 
+	
 	
 	public static void main(String[] args) {
 		
