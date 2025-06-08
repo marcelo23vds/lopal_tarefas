@@ -74,11 +74,11 @@ public class FrameListaTarefa {
 			dados[linha][0] = t.getCodigo();
 			dados[linha][1] = t.getTitulo();
 			dados[linha][2] = t.getDescricao();
-			dados[linha][2] = t.getDataInicial();
-			dados[linha][2] = t.getPrazo();
-			dados[linha][2] = t.getDataConclusao();
-			dados[linha][2] = t.getStatus();
-			dados[linha][2] = t.getResponsavel();
+			dados[linha][3] = t.getDataInicial();
+			dados[linha][4] = t.getPrazo();
+			dados[linha][5] = t.getDataConclusao();
+			dados[linha][6] = t.getStatus();
+			dados[linha][7] = t.getResponsavel();
 
 			linha++;
 		}

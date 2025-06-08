@@ -56,7 +56,7 @@ public class TarefaDAO {
 				String[] tarefa = linha != null ? linha.split(",") : null;
 
 				if (tarefa != null) {
-//					t.setCodigo(tarefa[0]);
+					t.setCodigo(tarefa[0]);
 					t.setTitulo(tarefa[1]);
 					t.setDescricao(tarefa[2]);
 //					t.setDataInicial(tarefa[3]);
