@@ -9,29 +9,20 @@ import java.io.IOException;
 
 public class FileFactory {
 
-	private FileWriter fw;
-	private BufferedWriter bw;
-	
-	private FileReader fr;
-	private BufferedReader br;
+    public BufferedReader getBufferedReader(String path) throws IOException {
+        FileReader fr = new FileReader(path);
+        BufferedReader br = new BufferedReader(fr);
+        return br;
+    }
 
-//	private String pathFuncionarios = "C:\\Users\\25132416\\tarefa\\funcionarios.csv";
-	private String pathFuncionarios = "C:\\Users\\vieir\\Desktop\\funcionarios.csv";
-	
-	public BufferedReader getBufferedReader() throws FileNotFoundException, IOException {
-		
-		fr = new FileReader(pathFuncionarios);
-		br = new BufferedReader(fr);
-		
-		return br;
-	}
+    public BufferedWriter getBufferedWriter(String path, boolean append) throws IOException {
+        FileWriter fw = new FileWriter(path, append);
+        BufferedWriter bw = new BufferedWriter(fw);
+        return bw;
+    }
+    
+    //para utilizar filefactory, passar o caminho como parametro nos métodos 
+    //getBufferedReader e getBufferedWriter para usar essa classe para qualquer arquivo
 
-	public BufferedWriter getBufferedWriter() throws FileNotFoundException, IOException {
-
-		fw = new FileWriter(pathFuncionarios, true);
-		bw = new BufferedWriter(fw);
-
-		return bw;
-	}
 
 }

@@ -59,7 +59,7 @@ public class FrameInicial {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//chamar a FrameTarefa que vai ser criada ainda
+				new FrameListaTarefa();
 				
 			}
 		});
