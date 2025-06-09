@@ -8,7 +8,7 @@ public class Tarefa {
 	private String titulo;
 	private String descricao;
 	private LocalDateTime dataInicial;
-	private LocalDateTime prazo;
+	private Integer prazo;
 	private LocalDateTime dataConclusao;
 	private Status status;
 	private Funcionario responsavel;
@@ -49,11 +49,11 @@ public class Tarefa {
 		this.dataInicial = dataInicial;
 	}
 
-	public LocalDateTime getPrazo() {
+	public Integer getPrazo() {
 		return prazo;
 	}
 
-	public void setPrazo(LocalDateTime prazo) {
+	public void setPrazo(Integer prazo) {
 		this.prazo = prazo;
 	}
 

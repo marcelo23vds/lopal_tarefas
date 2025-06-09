@@ -18,6 +18,10 @@ public class FuncionarioDAO {
 	public FuncionarioDAO(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
+	
+	public void listar() {
+		
+	}
 
 	public void gravar() {
 

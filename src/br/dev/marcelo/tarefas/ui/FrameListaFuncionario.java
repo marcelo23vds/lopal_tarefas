@@ -25,7 +25,7 @@ public class FrameListaFuncionario {
 	private JButton btnExcluir;
 	private JButton btnAlterar;
 	private JButton btnSair;
-//	private JButton btnVoltar; criar esse botao depois
+	private JButton btnVoltar;
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);
 
@@ -46,53 +46,64 @@ public class FrameListaFuncionario {
 		labelTitulo = new JLabel("Cadastro de Funcionarios");
 		labelTitulo.setBounds(10, 20, 500, 30);
 		labelTitulo.setFont(fontTitulo);
-		
+
 		btnNovo = new JButton("Cadastrar");
+		btnVoltar = new JButton("Voltar");
 
 		// Criação de tabela
 		String[] colunas = new String[3];
 		colunas[0] = "Código";
 		colunas[1] = "Nome";
 		colunas[2] = "Email";
-		
+
 //		obter lista de funcionarios
 		FuncionarioDAO dao = new FuncionarioDAO(null);
 
 		List<Funcionario> funcionarios = dao.showEmployees();
 
 		Object[][] dados = new Object[funcionarios.size()][3];
-		
+
 		int linha = 0;
-		
+
 		for (Funcionario f : funcionarios) {
-			
+
 			dados[linha][0] = f.getCodigo();
 			dados[linha][1] = f.getNome();
 			dados[linha][2] = f.getEmail();
-			
+
 			linha++;
 		}
 
 		tableFuncionarios = new JTable(dados, colunas);
-		
+
 		scrollFuncionarios = new JScrollPane(tableFuncionarios);
 		scrollFuncionarios.setBounds(10, 70, 500, 300);
-		
+
 		btnNovo.setBounds(10, 380, 150, 40);
+		btnVoltar.setBounds(170, 380, 150, 40);
 
 		painel.add(labelTitulo);
 		painel.add(scrollFuncionarios);
 		painel.add(btnNovo);
-		
+		painel.add(btnVoltar);
+
 		btnNovo.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new FrameFuncionario(tela);
-				//descobrir como atualizar a JTable apos sair da tela de dialogo
+				// descobrir como atualizar a JTable apos sair da tela de dialogo
 			}
 		});
-		
+
+		btnVoltar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tela.dispose();
+			}
+		});
+
 		tela.setVisible(true);
 
 	}

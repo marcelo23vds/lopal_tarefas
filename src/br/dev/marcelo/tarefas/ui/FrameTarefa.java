@@ -35,10 +35,10 @@ public class FrameTarefa {
 	private JTextField txtPrazo;
 	private JTextField txtDataConclusao;
 	private JComboBox<Status> boxStatus;
-	private JComboBox<Funcionario> boxResponsavel;
+	private JComboBox<String> boxResponsavel;
 
 	private JButton btnSalvar;
-	private JButton btnSair;
+	private JButton btnCancelar;
 
 	public FrameTarefa(JFrame telaLista) {
 		criarTela(telaLista);
@@ -91,14 +91,14 @@ public class FrameTarefa {
 
 		labelResponsavel = new JLabel("Responsável:");
 		labelResponsavel.setBounds(20, 410, 200, 30);
-		boxResponsavel = new JComboBox<Funcionario>();
+		boxResponsavel = new JComboBox<String>();
 		boxResponsavel.setBounds(20, 440, 200, 30);
 
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(20, 490, 100, 40);
 
-		btnSair = new JButton("Sair");
-		btnSair.setBounds(130, 490, 100, 40);
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(130, 490, 100, 40);
 
 		Container painel = tela.getContentPane();
 
@@ -106,7 +106,6 @@ public class FrameTarefa {
 		painel.add(txtTitulo);
 		painel.add(labelDescricao);
 		painel.add(txtDescricao);
-		
 		
 		painel.add(labelDataInicial);
 		painel.add(txtDataInicial);
@@ -121,9 +120,8 @@ public class FrameTarefa {
 		painel.add(labelResponsavel);
 		painel.add(boxResponsavel);
 		
-		
 		painel.add(btnSalvar);
-		painel.add(btnSair);
+		painel.add(btnCancelar);
 
 		btnSalvar.addActionListener(new ActionListener() {
 
@@ -138,6 +136,7 @@ public class FrameTarefa {
 //				tarefa.setPrazo(txtPrazo.getText());
 //				tarefa.setDataConclusao(txtDataConclusao.getText());
 				tarefa.setStatus((Status) boxStatus.getSelectedItem());
+				tarefa.setResponsavel((Funcionario) boxResponsavel.getSelectedItem());
 				
 				TarefaDAO dao = new TarefaDAO(tarefa);
 				dao.gravar();
@@ -154,11 +153,11 @@ public class FrameTarefa {
 			}
 		});
 
-		btnSair.addActionListener(new ActionListener() {
+		btnCancelar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(tela, "Confirma a saída do sistema?", "Sair do sistema",
+				int resposta = JOptionPane.showConfirmDialog(tela, "Cancelar novo cadastro?", "Cancelar",
 						JOptionPane.YES_NO_OPTION);
 				if (resposta == 0) {
 					tela.dispose();

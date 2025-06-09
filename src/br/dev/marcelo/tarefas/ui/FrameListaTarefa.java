@@ -24,7 +24,7 @@ public class FrameListaTarefa {
 	private JButton btnExcluir;
 	private JButton btnAlterar;
 	private JButton btnSair;
-//	private JButton btnVoltar; criar esse botao depois
+	private JButton btnVoltar;
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);
 
@@ -48,6 +48,7 @@ public class FrameListaTarefa {
 		labelTitulo.setFont(fontTitulo);
 
 		btnNovo = new JButton("Cadastrar");
+		btnVoltar = new JButton("Voltar");
 
 		// Criação de tabela
 		String[] colunas = new String[3];
@@ -79,16 +80,26 @@ public class FrameListaTarefa {
 		scrollTarefas.setBounds(10, 70, 500, 300);
 
 		btnNovo.setBounds(10, 380, 150, 40);
+		btnVoltar.setBounds(170, 380, 150, 40);
 
 		painel.add(labelTitulo);
 		painel.add(scrollTarefas);
 		painel.add(btnNovo);
+		painel.add(btnVoltar);
 
 		btnNovo.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new FrameTarefa(tela);
+			}
+		});
+		
+		btnVoltar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tela.dispose();
 			}
 		});
 
