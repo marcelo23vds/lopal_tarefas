@@ -28,7 +28,7 @@ public class FrameFuncionario {
 	private JTextField txtEmail;
 	
 	private JButton btnSalvar;
-	private JButton btnCancelar;
+	private JButton btnSair;
 	
 	public FrameFuncionario(JFrame telaLista) {
 		criarTela(telaLista);
@@ -69,8 +69,8 @@ public class FrameFuncionario {
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(20, 290, 100, 40);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(130, 290, 100, 40);
+		btnSair = new JButton("Sair");
+		btnSair.setBounds(130, 290, 100, 40);
 		
 		painel.add(labelCodigo);
 		painel.add(txtCodigo);
@@ -81,7 +81,7 @@ public class FrameFuncionario {
 		painel.add(labelEmail);
 		painel.add(txtEmail);
 		painel.add(btnSalvar);
-		painel.add(btnCancelar);
+		painel.add(btnSair);
 		
 		// Adicionar os ouvintes de ação dos botões
 		
@@ -103,21 +103,22 @@ public class FrameFuncionario {
 						txtNome.getText() + " gravado com sucesso!",
 						"Sucesso",
 						JOptionPane.INFORMATION_MESSAGE
+						
 				);
-				
+			
 				limparFormulario();
 				
 			}
 		});
 		
-		btnCancelar.addActionListener(new ActionListener() {
+		btnSair.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int resposta = JOptionPane.showConfirmDialog(
 					tela,
-					"Cancelar novo cadastro?",
-					"Cancelar",
+					"Sair da tela de cadastro?",
+					"Sair",
 					JOptionPane.YES_NO_OPTION
 				);
 				if (resposta == 0) {

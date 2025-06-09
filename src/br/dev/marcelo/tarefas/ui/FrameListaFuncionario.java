@@ -22,9 +22,8 @@ public class FrameListaFuncionario {
 	private JTable tableFuncionarios;
 	private JScrollPane scrollFuncionarios;
 	private JButton btnNovo;
-	private JButton btnExcluir;
-	private JButton btnAlterar;
-	private JButton btnSair;
+//	private JButton btnExcluir;
+//	private JButton btnAlterar;
 	private JButton btnVoltar;
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);

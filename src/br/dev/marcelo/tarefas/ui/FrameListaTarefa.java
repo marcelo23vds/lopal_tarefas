@@ -23,7 +23,6 @@ public class FrameListaTarefa {
 	private JButton btnNovo;
 	private JButton btnExcluir;
 	private JButton btnAlterar;
-	private JButton btnSair;
 	private JButton btnVoltar;
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);

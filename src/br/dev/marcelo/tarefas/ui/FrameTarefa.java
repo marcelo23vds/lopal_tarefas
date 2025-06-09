@@ -38,7 +38,7 @@ public class FrameTarefa {
 	private JComboBox<String> boxResponsavel;
 
 	private JButton btnSalvar;
-	private JButton btnCancelar;
+	private JButton btnSair;
 
 	public FrameTarefa(JFrame telaLista) {
 		criarTela(telaLista);
@@ -97,8 +97,8 @@ public class FrameTarefa {
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(20, 490, 100, 40);
 
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(130, 490, 100, 40);
+		btnSair = new JButton("Sair");
+		btnSair.setBounds(130, 490, 100, 40);
 
 		Container painel = tela.getContentPane();
 
@@ -121,7 +121,7 @@ public class FrameTarefa {
 		painel.add(boxResponsavel);
 		
 		painel.add(btnSalvar);
-		painel.add(btnCancelar);
+		painel.add(btnSair);
 
 		btnSalvar.addActionListener(new ActionListener() {
 
@@ -153,11 +153,11 @@ public class FrameTarefa {
 			}
 		});
 
-		btnCancelar.addActionListener(new ActionListener() {
+		btnSair.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(tela, "Cancelar novo cadastro?", "Cancelar",
+				int resposta = JOptionPane.showConfirmDialog(tela, "Sair da tela de cadastro?", "Sair",
 						JOptionPane.YES_NO_OPTION);
 				if (resposta == 0) {
 					tela.dispose();
