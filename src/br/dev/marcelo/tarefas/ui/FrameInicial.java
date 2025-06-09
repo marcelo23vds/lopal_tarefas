@@ -22,7 +22,7 @@ public class FrameInicial {
 	private void criarTela() {
 		
 		JFrame tela = new JFrame();
-		tela.setTitle("TAREFAS - TELA INICIAL");
+		tela.setTitle("Inicio");
 		tela.setSize(430, 250);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setLayout(null);

@@ -33,8 +33,9 @@ public class FrameListaFuncionario {
 	}
 
 	private void criarTela() {
+		
 		JFrame tela = new JFrame();
-		tela.setTitle("Cadastro de funcionarios");
+		tela.setTitle("Lista de Funcionarios");
 		tela.setSize(600, 600);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setLayout(null);
@@ -42,7 +43,7 @@ public class FrameListaFuncionario {
 
 		Container painel = tela.getContentPane();
 
-		labelTitulo = new JLabel("Cadastro de Funcionarios");
+		labelTitulo = new JLabel("Lista de Funcionarios");
 		labelTitulo.setBounds(10, 20, 500, 30);
 		labelTitulo.setFont(fontTitulo);
 

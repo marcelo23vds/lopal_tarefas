@@ -34,7 +34,7 @@ public class FrameListaTarefa {
 	private void criarTela() {
 		
 		JFrame tela = new JFrame();
-		tela.setTitle("Cadastro de Tarefas");
+		tela.setTitle("Lista de Tarefas");
 		tela.setSize(600, 600);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setLayout(null);
@@ -42,7 +42,7 @@ public class FrameListaTarefa {
 
 		Container painel = tela.getContentPane();
 
-		labelTitulo = new JLabel("Cadastro de Tarefas");
+		labelTitulo = new JLabel("Lista de Tarefas");
 		labelTitulo.setBounds(10, 20, 500, 30);
 		labelTitulo.setFont(fontTitulo);
 
