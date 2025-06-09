@@ -137,6 +137,7 @@ public class FrameTarefa {
 //				tarefa.setDataInicial(txtDataInicial.getText());
 //				tarefa.setPrazo(txtPrazo.getText());
 //				tarefa.setDataConclusao(txtDataConclusao.getText());
+				tarefa.setStatus((Status) boxStatus.getSelectedItem());
 				
 				TarefaDAO dao = new TarefaDAO(tarefa);
 				dao.gravar();
