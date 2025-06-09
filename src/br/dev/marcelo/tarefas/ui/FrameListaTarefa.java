@@ -36,7 +36,7 @@ public class FrameListaTarefa {
 		
 		JFrame tela = new JFrame();
 		tela.setTitle("Cadastro de Tarefas");
-		tela.setSize(1250, 600);
+		tela.setSize(600, 600);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setLayout(null);
 		tela.setLocationRelativeTo(null);
@@ -50,22 +50,17 @@ public class FrameListaTarefa {
 		btnNovo = new JButton("Cadastrar");
 
 		// Criação de tabela
-		String[] colunas = new String[8];
+		String[] colunas = new String[3];
 		colunas[0] = "Código da tarefa";
 		colunas[1] = "Titulo";
-		colunas[2] = "Descrição";
-		colunas[3] = "Data Inicial";
-		colunas[4] = "Prazo";
-		colunas[5] = "Data de conclusão";
-		colunas[6] = "Status";
-		colunas[7] = "Código do responsavel";
+		colunas[2] = "Código do responsavel";
 
 //		obter lista de tarefas
 		TarefaDAO dao = new TarefaDAO(null);
 
 		List<Tarefa> tarefas = dao.showTasks();
 
-		Object[][] dados = new Object[tarefas.size()][8];
+		Object[][] dados = new Object[tarefas.size()][3];
 
 		int linha = 0;
 
@@ -73,12 +68,7 @@ public class FrameListaTarefa {
 
 			dados[linha][0] = t.getCodigo();
 			dados[linha][1] = t.getTitulo();
-			dados[linha][2] = t.getDescricao();
-			dados[linha][3] = t.getDataInicial();
-			dados[linha][4] = t.getPrazo();
-			dados[linha][5] = t.getDataConclusao();
-			dados[linha][6] = t.getStatus();
-			dados[linha][7] = t.getResponsavel();
+			dados[linha][2] = t.getResponsavel();
 
 			linha++;
 		}
@@ -86,7 +76,7 @@ public class FrameListaTarefa {
 		tableTarefas = new JTable(dados, colunas);
 
 		scrollTarefas = new JScrollPane(tableTarefas);
-		scrollTarefas.setBounds(10, 70, 1200, 300);
+		scrollTarefas.setBounds(10, 70, 500, 300);
 
 		btnNovo.setBounds(10, 380, 150, 40);
 
@@ -98,8 +88,7 @@ public class FrameListaTarefa {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				new FrameTarefa(tela);
-				// descobrir como atualizar a JTable apos sair da tela de dialogo
+				new FrameTarefa(tela);
 			}
 		});
 

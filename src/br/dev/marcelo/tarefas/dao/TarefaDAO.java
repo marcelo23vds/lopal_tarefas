@@ -26,7 +26,7 @@ public class TarefaDAO {
 
 			//MEU PC: "C:\\Users\\vieir\\Desktop\\tarefas.csv"
 			//SENAI: "C:\\Users\\25132416\\tarefa\\tarefas.csv"
-			BufferedWriter bw = ff.getBufferedWriter("C:\\Users\\vieir\\Desktop\\tarefas.csv", true);
+			BufferedWriter bw = ff.getBufferedWriter("C:\\Users\\25132416\\tarefa\\tarefas.csv", true);
 
 			bw.write(tarefa.toString());
 			bw.flush();
@@ -45,7 +45,7 @@ public class TarefaDAO {
 
 			//MEU PC: "C:\\Users\\vieir\\Desktop\\tarefas.csv"
 			//SENAI: "C:\\Users\\25132416\\tarefa\\tarefas.csv"
-			BufferedReader br = ff.getBufferedReader("C:\\Users\\vieir\\Desktop\\tarefas.csv");
+			BufferedReader br = ff.getBufferedReader("C:\\Users\\25132416\\tarefa\\tarefas.csv");
 
 			String linha = br.readLine();
 
