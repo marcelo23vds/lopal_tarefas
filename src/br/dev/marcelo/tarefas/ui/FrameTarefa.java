@@ -3,6 +3,9 @@ package br.dev.marcelo.tarefas.ui;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +17,7 @@ import javax.swing.JTextField;
 
 import br.dev.marcelo.tarefas.dao.FuncionarioDAO;
 import br.dev.marcelo.tarefas.dao.TarefaDAO;
+import br.dev.marcelo.tarefas.factory.FileFactory;
 import br.dev.marcelo.tarefas.model.Funcionario;
 import br.dev.marcelo.tarefas.model.Status;
 import br.dev.marcelo.tarefas.model.Tarefa;
@@ -36,12 +40,47 @@ public class FrameTarefa {
 	private JTextField txtDataConclusao;
 	private JComboBox<Status> boxStatus;
 	private JComboBox<String> boxResponsavel;
+	
+	private List<Funcionario> listaFuncionarios = new ArrayList<>();
 
 	private JButton btnSalvar;
 	private JButton btnSair;
 
 	public FrameTarefa(JFrame telaLista) {
 		criarTela(telaLista);
+	}
+
+	private void carregarFuncionarios() {
+
+		try {
+
+			String path = "C:\\Users\\vieir\\Desktop\\funcionarios.csv";
+			FileFactory fileFactory = new FileFactory();
+			BufferedReader br = fileFactory.getBufferedReader(path);
+
+			String linha;
+
+			br.readLine(); // ler a primeira linha e pular (porque é o cabeçalho)
+
+			while ((linha = br.readLine()) != null) {
+
+				String[] partes = linha.split(",");
+
+				Funcionario f = new Funcionario();
+				
+				f.setCodigo(partes[0]);
+				f.setNome(partes[1]);
+				f.setTelefone(partes[2]);
+				f.setEmail(partes[3]);
+
+				listaFuncionarios.add(f);
+				boxResponsavel.addItem(f.getNome());
+
+			}
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro ao carregar funcionários.");
+		}
 	}
 
 	private void criarTela(JFrame telaLista) {
@@ -67,21 +106,21 @@ public class FrameTarefa {
 		labelDataInicial.setBounds(20, 150, 200, 30);
 		txtDataInicial = new JTextField();
 		txtDataInicial.setBounds(20, 180, 200, 30);
-		//desabilitado por enquanto
+		// desabilitado por enquanto
 		txtDataInicial.setEnabled(false);
 
 		labelPrazo = new JLabel("Prazo:");
 		labelPrazo.setBounds(20, 215, 200, 30);
 		txtPrazo = new JTextField();
 		txtPrazo.setBounds(20, 245, 200, 30);
-		//desabilitado por enquanto
+		// desabilitado por enquanto
 		txtPrazo.setEnabled(false);
 
 		labelDataConclusao = new JLabel("Data de Conclusão:");
 		labelDataConclusao.setBounds(20, 280, 200, 30);
 		txtDataConclusao = new JTextField();
 		txtDataConclusao.setBounds(20, 310, 200, 30);
-		//desabilitado por enquanto
+		// desabilitado por enquanto
 		txtDataConclusao.setEnabled(false);
 
 		labelStatus = new JLabel("Status:");
@@ -91,8 +130,10 @@ public class FrameTarefa {
 
 		labelResponsavel = new JLabel("Responsável:");
 		labelResponsavel.setBounds(20, 410, 200, 30);
+
 		boxResponsavel = new JComboBox<String>();
 		boxResponsavel.setBounds(20, 440, 200, 30);
+		carregarFuncionarios(); //momento que é chamado o metodo que atribui a lista de nomes para o combBox
 
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(20, 490, 100, 40);
@@ -106,20 +147,20 @@ public class FrameTarefa {
 		painel.add(txtTitulo);
 		painel.add(labelDescricao);
 		painel.add(txtDescricao);
-		
+
 		painel.add(labelDataInicial);
 		painel.add(txtDataInicial);
 		painel.add(labelPrazo);
 		painel.add(txtPrazo);
 		painel.add(labelDataConclusao);
 		painel.add(txtDataConclusao);
-		
+
 		painel.add(labelStatus);
 		painel.add(boxStatus);
-		
+
 		painel.add(labelResponsavel);
 		painel.add(boxResponsavel);
-		
+
 		painel.add(btnSalvar);
 		painel.add(btnSair);
 
@@ -136,18 +177,14 @@ public class FrameTarefa {
 //				tarefa.setPrazo(txtPrazo.getText());
 //				tarefa.setDataConclusao(txtDataConclusao.getText());
 				tarefa.setStatus((Status) boxStatus.getSelectedItem());
-				tarefa.setResponsavel((Funcionario) boxResponsavel.getSelectedItem());
-				
+				tarefa.setResponsavel((String) boxResponsavel.getSelectedItem());
+
 				TarefaDAO dao = new TarefaDAO(tarefa);
 				dao.gravar();
-				
-				JOptionPane.showMessageDialog(
-						tela,
-						txtTitulo.getText() + " gravado com sucesso!",
-						"Sucesso",
-						JOptionPane.INFORMATION_MESSAGE
-				);
-				
+
+				JOptionPane.showMessageDialog(tela, txtTitulo.getText() + " gravado com sucesso!", "Sucesso",
+						JOptionPane.INFORMATION_MESSAGE);
+
 				limparFormulario();
 
 			}
@@ -175,5 +212,5 @@ public class FrameTarefa {
 		txtPrazo.setText(null);
 		txtDataConclusao.setText(null);
 	}
-	
+
 }

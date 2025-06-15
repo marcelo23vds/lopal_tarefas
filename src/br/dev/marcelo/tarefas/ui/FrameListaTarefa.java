@@ -21,8 +21,6 @@ public class FrameListaTarefa {
 	private JTable tableTarefas;
 	private JScrollPane scrollTarefas;
 	private JButton btnNovo;
-	private JButton btnExcluir;
-	private JButton btnAlterar;
 	private JButton btnVoltar;
 
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 18);
@@ -53,7 +51,7 @@ public class FrameListaTarefa {
 		String[] colunas = new String[3];
 		colunas[0] = "Código da tarefa";
 		colunas[1] = "Titulo";
-		colunas[2] = "Código do responsavel";
+		colunas[2] = "Responsavel";
 
 //		obter lista de tarefas
 		TarefaDAO dao = new TarefaDAO(null);

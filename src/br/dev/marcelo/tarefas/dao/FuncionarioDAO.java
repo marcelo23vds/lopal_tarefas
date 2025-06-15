@@ -29,7 +29,7 @@ public class FuncionarioDAO {
 
 			//MEU PC: "C:\\Users\\vieir\\Desktop\\funcionarios.csv"
 			//SENAI: "C:\\Users\\25132416\\tarefa\\funcionarios.csv"
-			BufferedWriter bw = ff.getBufferedWriter("C:\\Users\\25132416\\tarefa\\funcionarios.csv", true);
+			BufferedWriter bw = ff.getBufferedWriter("C:\\Users\\vieir\\Desktop\\funcionarios.csv", true);
 
 			bw.write(funcionario.toString());
 			bw.flush();
@@ -48,7 +48,7 @@ public class FuncionarioDAO {
 			
 			//MEU PC: "C:\\Users\\vieir\\Desktop\\funcionarios.csv"
 			//SENAI: "C:\\Users\\25132416\\tarefa\\funcionarios.csv"
-			BufferedReader br = ff.getBufferedReader("C:\\Users\\25132416\\tarefa\\funcionarios.csv");
+			BufferedReader br = ff.getBufferedReader("C:\\Users\\vieir\\Desktop\\funcionarios.csv");
 
 			String linha = br.readLine();
 

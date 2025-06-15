@@ -11,7 +11,7 @@ public class Tarefa {
 	private Integer prazo;
 	private LocalDateTime dataConclusao;
 	private Status status;
-	private Funcionario responsavel;
+	private String responsavel;
 	
 	public Tarefa (String titulo) {
 		
@@ -65,11 +65,11 @@ public class Tarefa {
 		this.status = status;
 	}
 
-	public Funcionario getResponsavel() {
+	public String getResponsavel() {
 		return responsavel;
 	}
 
-	public void setResponsavel(Funcionario responsavel) {
+	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
 	}
 
