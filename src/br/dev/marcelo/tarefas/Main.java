@@ -18,15 +18,21 @@ import br.dev.marcelo.tarefas.ui.FrameListaFuncionario;
 import br.dev.marcelo.tarefas.utils.Utils;
 
 public class Main {
-	
+
 	public static void main(String[] args) {
-		
+
 		new FrameInicial();
-		
+
+//		Para o App funcionar corretamente é necessario informar o local dos arquivos "tarefas" e "funcionarios" nas classes do package "dao"
+//		Caso o arquivo não exista o app cria automaticamente no local informado
+//		E se o arquivo for criado automaticamente, lembrar que a primeira linha foi programada para ser ignorada, pois o correto é ela ser o cabeçalho.
+
 	}
-	
+
+}
+
 //	UTILIZAR COMO DOCUMENTAÇÃO PARA LEITURA E ESCRITA DE ARQUIVOS:
-	
+
 //	private static void gravarArquivo() {
 //		
 //		FileWriter arquivo = null;
@@ -77,5 +83,3 @@ public class Main {
 //		
 //		
 //	}
-
-}

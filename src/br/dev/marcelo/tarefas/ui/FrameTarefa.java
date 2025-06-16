@@ -64,14 +64,14 @@ public class FrameTarefa {
 
 			while ((linha = br.readLine()) != null) {
 
-				String[] partes = linha.split(",");
+				String[] coluna = linha.split(",");
 
 				Funcionario f = new Funcionario();
 				
-				f.setCodigo(partes[0]);
-				f.setNome(partes[1]);
-				f.setTelefone(partes[2]);
-				f.setEmail(partes[3]);
+				f.setCodigo(coluna[0]);
+				f.setNome(coluna[1]);
+				f.setTelefone(coluna[2]);
+				f.setEmail(coluna[3]);
 
 				boxResponsavel.addItem(f.getNome());
 				listaFuncionarios.add(f);

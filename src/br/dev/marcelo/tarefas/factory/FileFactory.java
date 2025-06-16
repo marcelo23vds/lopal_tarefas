@@ -24,5 +24,4 @@ public class FileFactory {
     //para utilizar filefactory, passar o caminho como parametro nos métodos 
     //getBufferedReader e getBufferedWriter para usar essa classe para qualquer arquivo
 
-
 }
