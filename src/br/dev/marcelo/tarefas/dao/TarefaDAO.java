@@ -37,7 +37,7 @@ public class TarefaDAO {
 
 	}
 
-	public List<Tarefa> showTasks() {
+	public List<Tarefa> showTarefas() {
 
 		List<Tarefa> tarefas = new ArrayList<>();
 
@@ -58,12 +58,7 @@ public class TarefaDAO {
 				if (tarefa != null) {
 					t.setCodigo(tarefa[0]);
 					t.setTitulo(tarefa[1]);
-					t.setDescricao(tarefa[2]);
-//					t.setDataInicial(tarefa[3]);
-//					t.setPrazo(tarefa[4]);
-//					t.setDataConclusao(tarefa[5]);
-//					t.setStatus(tarefa[6]);
-//					t.setResponsavel(tarefa[7]);				
+					t.setResponsavel(tarefa[7]);				
 
 					tarefas.add(t);
 				}

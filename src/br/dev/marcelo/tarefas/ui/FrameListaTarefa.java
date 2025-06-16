@@ -56,7 +56,7 @@ public class FrameListaTarefa {
 //		obter lista de tarefas
 		TarefaDAO dao = new TarefaDAO(null);
 
-		List<Tarefa> tarefas = dao.showTasks();
+		List<Tarefa> tarefas = dao.showTarefas();
 
 		Object[][] dados = new Object[tarefas.size()][3];
 

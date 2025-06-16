@@ -73,8 +73,8 @@ public class FrameTarefa {
 				f.setTelefone(partes[2]);
 				f.setEmail(partes[3]);
 
-				listaFuncionarios.add(f);
 				boxResponsavel.addItem(f.getNome());
+				listaFuncionarios.add(f);
 
 			}
 
@@ -173,9 +173,11 @@ public class FrameTarefa {
 				tarefa.setCodigo(Utils.gerarUUID());
 				tarefa.setTitulo(txtTitulo.getText());
 				tarefa.setDescricao(txtDescricao.getText());
+				
 //				tarefa.setDataInicial(txtDataInicial.getText());
 //				tarefa.setPrazo(txtPrazo.getText());
 //				tarefa.setDataConclusao(txtDataConclusao.getText());
+				
 				tarefa.setStatus((Status) boxStatus.getSelectedItem());
 				tarefa.setResponsavel((String) boxResponsavel.getSelectedItem());
 
